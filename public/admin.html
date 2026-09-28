@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — Dream Game Valley</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🛠 Dream Game Valley — Admin</h1>
+    <div><a href="index.html"><button class="secondary">Back to store</button></a></div>
+  </header>
+
+  <div class="admin-panel">
+    <div id="setupBox" class="hidden">
+      <h2>First-time admin setup</h2>
+      <p style="color:var(--muted)">
+        This runs once, ever. You need the ADMIN_SETUP_KEY from your own .env file
+        (only you have it) and you choose your own password here — nobody else
+        will ever see it.
+      </p>
+      <form onsubmit="return doAdminSetup(event)">
+        <input type="text" id="setupKey" placeholder="ADMIN_SETUP_KEY from .env" required>
+        <input type="email" id="setupEmail" placeholder="Your admin email" required>
+        <input type="password" id="setupPassword" placeholder="Choose your admin password" required minlength="8">
+        <button type="submit">Create my admin account</button>
+      </form>
+      <p id="setupError" class="error"></p>
+    </div>
+
+    <div id="adminOnlyBox" class="hidden">
+      <h2>Add a new game</h2>
+      <form onsubmit="return addGame(event)" enctype="multipart/form-data">
+        <input type="text" id="title" placeholder="Game title" required>
+        <textarea id="description" placeholder="Description" rows="4" required></textarea>
+        <input type="number" id="price" placeholder="Price in dollars, e.g. 9.99" step="0.01" min="0" required>
+        <input type="file" id="gameFile">
+        <button type="submit">Add game</button>
+      </form>
+      <p id="addError" class="error"></p>
+
+      <h2>Your listed games</h2>
+      <ul id="ownedGames" class="owned-games"></ul>
+    </div>
+
+    <div id="notAllowedBox" class="hidden">
+      <p>You're signed in, but this account isn't the admin account.</p>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

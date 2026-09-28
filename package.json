@@ -1,0 +1,21 @@
+{
+  "name": "dream-game-valley",
+  "version": "1.0.0",
+  "description": "Dream Game Valley \u2014 sell your own games online with accounts, an admin panel, and Stripe checkout.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.4.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "stripe": "^15.7.0"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dream Game Valley</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎮 Dream Game Valley</h1>
+    <div id="authArea"></div>
+  </header>
+
+  <main>
+    <div id="message" class="message"></div>
+    <section id="gameList" class="game-grid"></section>
+  </main>
+
+  <!-- Sign in / Sign up modal -->
+  <div id="authModal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">×</button>
+      <div class="tabs">
+        <button id="tabLogin" class="tab active" onclick="showTab('login')">Sign in</button>
+        <button id="tabSignup" class="tab" onclick="showTab('signup')">Sign up</button>
+      </div>
+      <form id="loginForm" onsubmit="return doLogin(event)">
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Sign in</button>
+      </form>
+      <form id="signupForm" class="hidden" onsubmit="return doSignup(event)">
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPassword" placeholder="Password (8+ characters)" required minlength="8">
+        <button type="submit">Create account</button>
+      </form>
+      <p id="authError" class="error"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
